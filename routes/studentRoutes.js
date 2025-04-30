@@ -1,9 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { getStudents, createStudent } = require('../controllers/studentController');
+const {
+  getStudents,
+  getStudentById,
+  createStudent,
+  updateStudent,
+  deleteStudent
+} = require('../controllers/studentController');
 
-// Routes
 router.get('/', getStudents);
+router.get('/:id', getStudentById);
 router.post('/', createStudent);
+router.put('/:id', updateStudent);     // <-- this is key
+router.delete('/:id', deleteStudent);  // <-- this too
 
 module.exports = router;
